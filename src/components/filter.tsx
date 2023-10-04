@@ -41,10 +41,34 @@ export default function Filter({toggleFilter}: PokemonTableHeaderProps) {
     return (
         <div className="filter_outline" onClick={toggleFilter}>
             <div className="filter_inner_view" onClick={e => e.stopPropagation()}>
-                <p className="filter_item" style={{color: show.image ? "green" : "red"}} onClick={handleImageClick}>Image</p>
-                <p className="filter_item" style={{color: show.weight ? "green" : "red"}} onClick={handleWeightClick}>Weight</p>
-                <p className="filter_item" style={{color: show.height ? "green" : "red"}} onClick={handleHeightClick}>Height</p>
-                <p className="filter_item" style={{color: show.types ? "green" : "red"}} onClick={handleTypesClick}>Types</p>
+                <p 
+                    className="filter_item" 
+                    style={{color: show.image ? "green" : "red"}} 
+                    onClick={handleImageClick}
+                >
+                    Image
+                </p>
+                <p 
+                    className="filter_item" 
+                    style={{color: show.weight ? "green" : "red"}} 
+                    onClick={handleWeightClick}
+                >
+                    Weight
+                </p>
+                <p 
+                    className="filter_item" 
+                    style={{color: show.height ? "green" : "red"}} 
+                    onClick={handleHeightClick}
+                >
+                    Height
+                </p>
+                <p 
+                    className="filter_item" 
+                    style={{color: show.types ? "green" : "red"}} 
+                    onClick={handleTypesClick}
+                >
+                    Types
+                </p>
             </div>
             <p className="filter_x" onClick={toggleFilter}>❌</p>
         </div>

@@ -13,7 +13,7 @@ const reducers = combineReducers({
 const saveState = {
     // Key property: root
     key: "root",
-    // Declares which storage to use, AsyncStorage has most active community
+    // Sets localstorage as the type of storage to use
     storage: localStorage,
     // Whitelists the names of the states to save
     whitelist: ["pokemon"]

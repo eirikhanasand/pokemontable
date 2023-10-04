@@ -42,7 +42,8 @@ export const PokemonSlice = createSlice({
 })
 
 // Exports redurcers
-export const { setPokemon, setPokemonList, setShow, setCount } = PokemonSlice.actions
+export const { setPokemon, setPokemonList, setShow, setCount } = 
+PokemonSlice.actions
 
 // Exports the profile slice
 export default PokemonSlice.reducer

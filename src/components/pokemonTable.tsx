@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import fetchPokemonPage from "../utils/fetchPokemon"
 import "../styles/pokemonTable.css"
 import PokemonTableHeader from "./pokemonTableHeader"
@@ -13,13 +13,13 @@ type PokemonList = {
 }
 
 export default function PokemonTable() {
-    const { pokemon, pokemonList, count } = useSelector((state: ReduxState) => state.pokemon)
+    const { pokemon, pokemonList, count } = useSelector((state: ReduxState) => 
+        state.pokemon)
     const dispatch = useDispatch()
-    const [page, setPage] = useState(1)
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetchPokemonPage(count, page)
+            const response = await fetchPokemonPage(count, 1)
             if (Array.isArray(response)) {
                 const importantData = extractImportantData(response)
                 dispatch(setPokemonList(importantData))
@@ -27,7 +27,7 @@ export default function PokemonTable() {
         }
 
         fetchData()
-    }, [page, count])
+    }, [count])
 
     if (!pokemonList) return <Loading />
     
@@ -71,12 +71,24 @@ function ListItem({pokemon}: PokemonList): JSX.Element {
     return (
         <>
             <div className="line" />
-                <div className="table_content" style={{gridTemplateColumns: columns()}} onClick={handleClick}>
-                    {show.image && <img className="table_item-image" src={pokemon.image} alt={pokemon.name} />}
+                <div 
+                    className="table_content" 
+                    style={{gridTemplateColumns: columns()}} 
+                    onClick={handleClick}
+                >
+                    {show.image && <img 
+                        className="table_item-image" 
+                        src={pokemon.image} 
+                        alt={pokemon.name} 
+                    />}
                     <p className="table_item">{pokemon.name}</p>
                     <p className="table_item">{pokemon.id}</p>
-                    {show.weight && <p className="table_item">{pokemon.weight}</p>}
-                    {show.height && <p className="table_item">{pokemon.height}</p>}
+                    {show.weight && <p className="table_item">
+                        {pokemon.weight}
+                    </p>}
+                    {show.height && <p className="table_item">
+                        {pokemon.height}
+                    </p>}
                     {show.types && <div className="table_item">
                         {pokemon.types.join(", ")} 
                     </div>}

@@ -48,4 +48,10 @@
       padding: 1em;
       height: 96.4vh;
     }
+
+    /* Displays the pokemon header text */
+    .pokemon_display {
+        font-size: small;
+        margin-right: 4em;
+    }
 }

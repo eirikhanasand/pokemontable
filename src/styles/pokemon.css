@@ -99,10 +99,14 @@
         height: 25em;
         width: 25em;
     }
+
+    .species {
+        justify-content: space-between;
+        width: 40%;
+    }
 }
 
 @media only screen and (max-width: 950px) {
-
     .pokemon_image {
         height: 15rem;
         width: 15rem;
@@ -111,22 +115,13 @@
 
 @media only screen and (max-width: 830px) {
     .stats {
-        width: 36.55vw; 
+        width: 50vw; 
         display: flex; 
-        flex-direction: column; 
-        /* background-color: darkcyan; */
+        flex-direction: row; 
         justify-content: space-between;
     }
 
     .smaller_view {
-        display: flex;
-        flex-direction: column;
-        padding-left: 0;
-        padding-right: 0;
-        overflow: auto;
-    }
-
-    .even_smaller_view {
         display: flex;
         flex-direction: row;
         padding-left: 0;
@@ -140,5 +135,64 @@
     .wrapper {
         padding: 1em;
         height: 96.4vh;
+    }
+}
+
+
+/* Decreases the padding on small screens */
+@media only screen and (max-width: 500px) {
+    .pokemon_image {
+        place-self: center;
+        height: 15rem;
+        width: 15rem;
+    }
+
+    .smaller_view {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: auto;
+    }
+
+    .general_name {
+        font-size: 2em;
+    }
+
+    .stats {
+        width: 90vw; 
+        display: flex; 
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+}
+
+/* Decreases the padding on small screens */
+@media only screen and (max-width: 500px) {
+    .pokemon_image {
+        place-self: center;
+        height: 10rem;
+        width: 10rem;
+    }
+
+    .smaller_view {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: auto;
+    }
+
+    .general_name {
+        font-size: 1em;
+    }
+
+    .stats {
+        width: 80vw; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: space-between;
+        padding-left: 1em;
+        padding-right: 1em;
     }
 }

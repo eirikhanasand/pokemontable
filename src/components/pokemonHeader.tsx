@@ -5,7 +5,8 @@ import { useEffect } from "react"
 
 export default function PokemonHeader() {
     const dispatch = useDispatch()
-    const { pokemon, pokemonList } = useSelector((state: ReduxState) => state.pokemon)
+    const { pokemon, pokemonList } = useSelector((state: ReduxState) => 
+        state.pokemon)
 
     function goBack() {
        dispatch(setPokemon(-1))
@@ -38,11 +39,28 @@ export default function PokemonHeader() {
 
     return (
         <div className="pokemon_header">
-            <img className="pokemon_nav_image" src="arrow.png" alt="Go back" onClick={goBack} />
-            <p className="pokemon_display">Displaying pokemon {pokemonList[pokemon].id}: {pokemonList[pokemon].name}</p>
+            <img 
+                className="pokemon_nav_image" 
+                src="arrow.png" 
+                alt="Go back"
+                onClick={goBack} 
+            />
+            <p className="pokemon_display">
+                Displaying pokemon {pokemonList[pokemon].id}: 
+                {pokemonList[pokemon].name}
+            </p>
             <div className="pokemon_nav_image_container">
-                <img className="pokemon_nav_image" src="left.png" alt="Previous pokemon" onClick={previous} />
-                <img className="pokemon_nav_image" src="right.png" alt="Next pokemon" onClick={next} />
+                <img 
+                    className="pokemon_nav_image" 
+                    src="left.png" 
+                    alt="Previous pokemon" 
+                    onClick={previous} />
+                <img 
+                    className="pokemon_nav_image" 
+                    src="right.png" 
+                    alt="Next pokemon" 
+                    onClick={next} 
+                />
             </div>
         </div>
     )

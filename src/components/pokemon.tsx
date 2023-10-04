@@ -17,7 +17,8 @@ type StatsObject = {
 }
 
 export default function Pokemon(): JSX.Element {
-    const { pokemon, pokemonList, count } = useSelector((state: ReduxState) => state.pokemon)
+    const { pokemon, pokemonList, count } = useSelector((state: ReduxState) => 
+        state.pokemon)
     const dispatch = useDispatch()
     
     const item = pokemonList[pokemon]
@@ -27,7 +28,8 @@ export default function Pokemon(): JSX.Element {
         if (!pokemonList[pokemon + 20]) {
             async function fetchData() {
                 // Calculates the next page and fetches it ahead of time
-                const response = await fetchPokemonPage(count, Math.ceil((pokemon + 20) / 50 + 1))
+                const response = await fetchPokemonPage(count, 
+                    Math.ceil((pokemon + 20) / 50 + 1))
                 // Checks if response is valid and if so updates array
                 if (Array.isArray(response)) {
                     const importantData = extractImportantData(response)
@@ -70,7 +72,9 @@ function GeneralInfo({pokemon}: PokemonObject): JSX.Element {
         <div className="general_info">
             <p className="general_name">{pokemon.name} · {pokemon.id}</p>
             <div>
-                <p className="pokemon_item">{pokemon.generation} · {pokemon.region}</p>
+                <p className="pokemon_item">
+                    {pokemon.generation} · {pokemon.region}
+                </p>
             </div>
         </div>
     )
@@ -86,10 +90,22 @@ function Stats({pokemon}: PokemonObject): JSX.Element {
                 <StatsObject title="Attack:" value={pokemon.attack} />
             </div>
             <div >
-                <StatsObject title="Defense:" value={pokemon.defense} />
-                <StatsObject title="Special attack:" value={pokemon.special_attack} />
-                <StatsObject title="Special defense:" value={pokemon.special_defense} />
-                <StatsObject title="Speed:" value={pokemon.speed} />
+                <StatsObject 
+                    title="Defense:" 
+                    value={pokemon.defense} 
+                />
+                <StatsObject 
+                    title="Special attack:" 
+                    value={pokemon.special_attack} 
+                />
+                <StatsObject 
+                    title="Special defense:" 
+                    value={pokemon.special_defense} 
+                />
+                <StatsObject 
+                    title="Speed:" 
+                    value={pokemon.speed} 
+                />
             </div>
         </div>
     )
@@ -109,7 +125,10 @@ function Species({pokemon}: PokemonObject): JSX.Element {
     return (
         <div className="species">
             <StatsObject title="Species:" value={pokemon.species} />
-            <StatsObject title={pokemon.types.length > 1 ? "Types:" : "Type:"} value={pokemon.types.join(", ")} />
+            <StatsObject 
+                title={pokemon.types.length > 1 ? "Types:" : "Type:"} 
+                value={pokemon.types.join(", ")} 
+            />
         </div>
     )
 }

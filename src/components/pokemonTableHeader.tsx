@@ -2,7 +2,7 @@ import { useState } from "react"
 import Filter from "./filter"
 import { setShow } from "../redux/pokemon"
 import "../styles/pokemonTable.css"
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
 /**
  * Displays the header and handles logic related to hiding and displaying
@@ -10,9 +10,8 @@ import { useDispatch, useSelector } from "react-redux"
  * @returns Header for the Pokemon table
  */
 export default function PokemonTableHeader(): JSX.Element {
-    const { show, pokemonList, count } = useSelector((state: ReduxState) => state.pokemon)
+    const { show } = useSelector((state: ReduxState) => state.pokemon)
     const [filter, setFilter] = useState<boolean>(false)
-    const dispatch = useDispatch()
 
     function toggleFilter() {
         setFilter(!filter)
@@ -26,7 +25,10 @@ export default function PokemonTableHeader(): JSX.Element {
 
     return (
         <>
-            <div className="table_header" style={{gridTemplateColumns: columns()}}>
+            <div 
+                className="table_header" 
+                style={{gridTemplateColumns: columns()}}
+                >
                 {show.image && <p className="table_header_item">Image</p>}
                 <p className="table_header_item">Name</p>
                 <p className="table_header_item">ID</p>
@@ -40,7 +42,11 @@ export default function PokemonTableHeader(): JSX.Element {
                 className="filter_image"
                 onClick={toggleFilter}  
             />
-            {filter && <Filter show={show} setShow={setShow} toggleFilter={toggleFilter} />}
+            {filter && <Filter 
+                show={show} 
+                setShow={setShow} 
+                toggleFilter={toggleFilter} 
+            />}
         </>
     )
 }
