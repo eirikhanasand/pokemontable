@@ -18,26 +18,31 @@
     background-color: #192b45;
     height: 93vh;
     border-radius: 1em;
-    background-color: yellow;
+    background-color: pink;
 }
 
 .general_info {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto;
     background-color: green;
-    width: 300px;
+    padding-top: 1em;
+    width: 50vw;
 }
 
 .general_name {
     font-size: 2.45em;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5em;
     font-weight: 600;
     color: white;
-    background-color: red;
 }
 
 .pokemon_item {
-    background-color: red;
+    color: white;
+    font-size: larger;
+}
+
+.title_view {
+    display: flex;
+    flex-direction: row;
 }
 
 .wrapper {
@@ -49,7 +54,36 @@
     place-items: center; */
 }
 
- 
+.stats_object {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: -1em;
+}
+
+.blue {
+    width: 100%; 
+    background-color: blue;
+}
+
+.stats {
+    width: 36.55vw; 
+    display: flex; 
+    flex-direction: row; 
+    background-color: darkcyan; 
+    justify-content: space-between;
+}
+
+.stats_object_item {
+    margin-right: 15px;
+    color: white;
+    font-size: larger;
+}
+
+.species {
+    justify-content: space-between;
+    width: 20%;
+}
+
 /* Decreases the padding on small screens */
 @media only screen and (max-width: 600px) {
     .wrapper {
