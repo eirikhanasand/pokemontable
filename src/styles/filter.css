@@ -1,0 +1,32 @@
+.filter_outline {
+    background-color: #080808AA;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+}
+
+.filter_inner_view {
+    background-color: #192b45;
+    height: 20vh;
+    width: 20vw;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    place-items: center;
+    border-radius: 1em;
+    color: white;
+}
+
+.filter_item {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter_x {
+    cursor: pointer;
+    position: absolute;
+}

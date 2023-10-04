@@ -10,11 +10,15 @@ export const PokemonSlice = createSlice({
         pokemonList: [] as Pokemon[],
         // Pokemon clicked
         pokemon: -1,
-        // Attributes hidden by user (image, height, weight, etc.)
-        hidden: [] as string[],
-        // Amount of pokemon per page
+        // Attributes hideable by user, all visible by defeault
+        show: {
+            image: true,
+            weight: true,
+            height: true,
+            types: true
+        },
+        // Amount of pokemon per page, not changable per now
         count: 50,
-        // Page the user has reached
     },
     // Declares slice reducer
     reducers: {
@@ -24,16 +28,11 @@ export const PokemonSlice = createSlice({
         },
         // Sets a specific pokemon to be displayed
         setPokemon: (state, action) => {
-            console.log(action.payload)
             state.pokemon = action.payload
         },
-        // Hides attributes from the table
-        setHide: (state, action) => {
-            state.hidden = state.hidden.filter(attribute => attribute !== action.payload)
-        },
-        // Adds back hidden attributes to the table
+        // Hides and shows attributes from the table
         setShow: (state, action) => {
-            state.hidden.push(action.payload)
+            state.show = action.payload
         },
         // Changes how many pokemon should be displayed per page
         setCount: (state, action) => {
@@ -43,7 +42,7 @@ export const PokemonSlice = createSlice({
 })
 
 // Exports redurcers
-export const { setPokemon, setPokemonList, setHide, setShow } = PokemonSlice.actions
+export const { setPokemon, setPokemonList, setShow, setCount } = PokemonSlice.actions
 
 // Exports the profile slice
 export default PokemonSlice.reducer

@@ -162,21 +162,28 @@ type PokemonType = {
 }
 
 type PokemonList = {
-    show: {
-        image: boolean
-        weight: boolean
-        height: boolean
-        types: boolean
-    }
+    show: Show
     pokemon: Pokemon
     index: number
+}
+
+type Show = {
+    image: boolean
+    weight: boolean
+    height: boolean
+    types: boolean
 }
 
 type ReduxState = {
     pokemon: {
         pokemon: number
         pokemonList: Pokemon[]
-        hidden: string[]
+        show: {
+            image: true,
+            weight: true,
+            height: true,
+            types: true
+        }
         count: number
     }
 }

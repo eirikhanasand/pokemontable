@@ -1,13 +1,13 @@
 /* Container for header when viewing a specific pokemon */
 .pokemon_header {
-    background-color: #192b45;
+    background-color: #15253b;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 1em;
-    padding-right: 1em;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 /* Container for images in the top nav bar */
@@ -16,7 +16,6 @@
     display: flex;
     flex-direction: row;
     justify-content: right;
-    background-color: red;
     /* Makes no visual difference, but fixes bug in Safari */
     width: 0; 
 }

@@ -21,24 +21,12 @@
     display: grid;
     margin-left: 1em;
     margin-right: 1em;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     text-align: center;
-}
-
-/* Table rows */
-.table_content {
-    margin: 1em;
-    /* display: grid; */
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    /* place-items: center; */
-    /* height: 80px; */
-    cursor: pointer;
 }
 
 /* Table items */
 .table_item,
-.table_header_item,
-.table_item_clickable {
+.table_header_item {
     color: white;
     font-size: 1.2em;
 }
@@ -56,12 +44,6 @@
     place-items: center;
 }
 
-/* Adds cursor pointer to clickable elements */
-.table_item_clickable {
-    cursor: pointer;
-    font-weight: 600;
-}
-
 /* Displays a thin horizontal line */
 .line {
     margin-left: 2em;
@@ -75,12 +57,37 @@
     margin-bottom: 62px;
 }
 
+.filter_image {
+    height: 40px;
+    width: 25px;
+    position: absolute;
+    right: 3.5vw;
+    top: 5vh;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1150px) {
+    .table_header {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .table_header {
+        width: 86.5%;
+    }
+}
+
 /* 
  * Decreases items on small devices to prevent content from overlapping
  */
-@media only screen and (max-width: 600px) {
+ @media only screen and (max-width: 600px) {
     .table_item {
-        font-size: 0.8em;
+        font-size: 0.7em;
+    }
+
+    .table_header_item {
+        font-size: 0.7em;
     }
 
     .table_item_image {
@@ -94,15 +101,43 @@
 }
 
 /* 
- * Decreases items on even smaller devices to prevent content from overlapping
+ * Decreases items on small devices to prevent content from overlapping
  */
- @media only screen and (max-width: 600px) {
-    .table_item {
+ @media only screen and (max-width: 450px) {
+    .table_header {
+        width: 83%;
+    }
+
+    .table_header_item {
         font-size: 0.8em;
     }
 
-    .pokemon_table {
-        height: 96.4vh;
+    .table_item {
+        font-size: 0.8em;
+    }
+    
+    .table_item_image {
+        height: 2em;
+        width: 2em;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .table_header {
+        width: 83%;
+    }
+
+    .table_header_item {
+        font-size: 0.8em;
+    }
+
+    .table_item {
+        font-size: 0.8em;
+    }
+    
+    .table_item_image {
+        height: 2em;
+        width: 2em;
     }
 }
 

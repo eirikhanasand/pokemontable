@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import "../styles/pokemonHeader.css"
 import { setPokemon } from "../redux/pokemon"
+import { useEffect } from "react"
 
 export default function PokemonHeader() {
     const dispatch = useDispatch()
@@ -17,6 +18,23 @@ export default function PokemonHeader() {
     function next() {
         dispatch(setPokemon(pokemon + 1))
     }
+
+    useEffect(() => {
+        function handleKeyDown(event: KeyboardEvent) {
+          switch (event.key) {
+            case "ArrowDown":
+            case "ArrowLeft":   previous(); break;
+            case "ArrowUp":
+            case "ArrowRight":  next();     break;
+          }
+        }
+    
+        window.addEventListener("keydown", handleKeyDown);
+    
+        return () => {
+          window.removeEventListener("keydown", handleKeyDown);
+        }
+      }, [pokemon])
 
     return (
         <div className="pokemon_header">

@@ -1,15 +1,14 @@
 .pokemon_image {
     height: 25em;
     width: 25em;
-    background-color: red;
 }
 
 /* Table rows */
 .table_content {
     margin: 1em;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     place-items: center;
+    margin-top: -0.3em;
     height: 80px;
     cursor: pointer;
 }
@@ -18,11 +17,9 @@
     background-color: #192b45;
     height: 93vh;
     border-radius: 1em;
-    background-color: pink;
 }
 
 .general_info {
-    background-color: green;
     padding-top: 1em;
     width: 50vw;
 }
@@ -43,6 +40,8 @@
 .title_view {
     display: flex;
     flex-direction: row;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
 }
 
 .wrapper {
@@ -50,8 +49,6 @@
     padding: 2em;
     /* Exact value that works both for Safari and Chrome */
     height: 92.575vh;
-    /* display: grid;
-    place-items: center; */
 }
 
 .stats_object {
@@ -62,14 +59,13 @@
 
 .blue {
     width: 100%; 
-    background-color: blue;
 }
 
 .stats {
     width: 36.55vw; 
     display: flex; 
     flex-direction: row; 
-    background-color: darkcyan; 
+    /* background-color: darkcyan; */
     justify-content: space-between;
 }
 
@@ -82,6 +78,61 @@
 .species {
     justify-content: space-between;
     width: 20%;
+}
+
+.smaller_view {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+}
+
+@media only screen and (max-width: 1380px) {
+    .title_view {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .pokemon_image {
+        height: 25em;
+        width: 25em;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+
+    .pokemon_image {
+        height: 15rem;
+        width: 15rem;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    .stats {
+        width: 36.55vw; 
+        display: flex; 
+        flex-direction: column; 
+        /* background-color: darkcyan; */
+        justify-content: space-between;
+    }
+
+    .smaller_view {
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: auto;
+    }
+
+    .even_smaller_view {
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        padding-right: 0;
+        overflow: auto;
+    }
 }
 
 /* Decreases the padding on small screens */

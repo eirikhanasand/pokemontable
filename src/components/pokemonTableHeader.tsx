@@ -1,69 +1,46 @@
-type PokemonTableHeaderProps = {
-    show: {
-        image: boolean;
-        weight: boolean;
-        height: boolean;
-        types: boolean;
-    }
-    setShow: React.Dispatch<React.SetStateAction<{
-        image: boolean;
-        weight: boolean;
-        height: boolean;
-        types: boolean;
-    }>>
-}
+import { useState } from "react"
+import Filter from "./filter"
+import { setShow } from "../redux/pokemon"
+import "../styles/pokemonTable.css"
+import { useDispatch, useSelector } from "react-redux"
 
 /**
  * Displays the header and handles logic related to hiding and displaying
  * certain elements from the list
  * @returns Header for the Pokemon table
  */
-export default function PokemonTableHeader({show, setShow}: PokemonTableHeaderProps): JSX.Element {
+export default function PokemonTableHeader(): JSX.Element {
+    const { show, pokemonList, count } = useSelector((state: ReduxState) => state.pokemon)
+    const [filter, setFilter] = useState<boolean>(false)
+    const dispatch = useDispatch()
 
-    function handleImageClick() {
-        setShow({...show, image: !show.image})
+    function toggleFilter() {
+        setFilter(!filter)
     }
 
-    function handleWeightClick() {
-        setShow({...show, weight: !show.weight})
-    }
-
-    function handleHeightClick() {
-        setShow({...show, height: !show.height})
-    }
-
-    function handleTypesClick() {
-        setShow({...show, types: !show.types})
+    function columns(): string {
+        let count = 2
+        Object.values(show).filter(value => value && count++)
+        return "1fr ".repeat(count)
     }
 
     return (
-        <div className="table_header">
-            <p 
-                className={`table_item_clickable ${show.image ? 'gray-text' : ''}`} 
-                onClick={handleImageClick}
-            >
-                Image
-            </p>
-            <p className="table_header_item">Name</p>
-            <p className="table_header_item">ID</p>
-            <p 
-                className={`table_item_clickable ${show.weight ? 'gray-text' : ''}`} 
-                onClick={handleWeightClick}
-            >
-                Weight
-            </p>
-            <p 
-                className={`table_item_clickable ${show.height ? 'gray-text' : ''}`} 
-                onClick={handleHeightClick}
-            >
-                Height
-            </p>
-            <p 
-                className={`table_item_clickable ${show.types ? 'gray-text' : ''}`} 
-                onClick={handleTypesClick}
-            >
-                Types
-            </p>
-        </div>
+        <>
+            <div className="table_header" style={{gridTemplateColumns: columns()}}>
+                {show.image && <p className="table_header_item">Image</p>}
+                <p className="table_header_item">Name</p>
+                <p className="table_header_item">ID</p>
+                {show.weight && <p className="table_header_item">Weight</p>}
+                {show.height && <p className="table_header_item">Height</p>}
+                {show.types && <p className="table_header_item">Types</p>}
+            </div>
+            <img 
+                src="filter.png" 
+                alt="Filter table attributes" 
+                className="filter_image"
+                onClick={toggleFilter}  
+            />
+            {filter && <Filter show={show} setShow={setShow} toggleFilter={toggleFilter} />}
+        </>
     )
 }

@@ -24,7 +24,7 @@ export default function Pokemon(): JSX.Element {
 
     useEffect(() => {
         // Fetches the next side 20 pokemon before you reach it
-        if (!pokemonList[pokemon+20]) {
+        if (!pokemonList[pokemon + 20]) {
             async function fetchData() {
                 // Calculates the next page and fetches it ahead of time
                 const response = await fetchPokemonPage(count, Math.ceil((pokemon + 20) / 50 + 1))
@@ -47,15 +47,16 @@ export default function Pokemon(): JSX.Element {
             <div className="pokemon_background">
                 <PokemonHeader />
                 <div className="title_view">
-                    <img className="pokemon_image" 
-                        src={item.image} 
-                        alt={item.name}
-                    />
-                    <GeneralInfo pokemon={item} />
-                    <Species pokemon={item} />
+                    <div className="smaller_view">
+                            <img className="pokemon_image" 
+                                src={item.image} 
+                                alt={item.name}
+                            />
+                            <GeneralInfo pokemon={item} />
+                        <Species pokemon={item} />
+                    </div>
                 </div>
                 <div className="title_view">
-                    
                     <Stats pokemon={item} />
                     <div className="blue"></div>
                 </div>
@@ -108,11 +109,7 @@ function Species({pokemon}: PokemonObject): JSX.Element {
     return (
         <div className="species">
             <StatsObject title="Species:" value={pokemon.species} />
-            <StatsObject title="Type:" value={pokemon.types.join(", ")} />
+            <StatsObject title={pokemon.types.length > 1 ? "Types:" : "Type:"} value={pokemon.types.join(", ")} />
         </div>
     )
 }
-
-// It should be possible for a user to obtain detailed stats(hp, defence, attack etc) about each pokemon in the table by selecting it. 
-// The detailed information about the selected pokemon should be displayed in a suitable manner. 
-// The selected pokemon in the table should be highlighted.
