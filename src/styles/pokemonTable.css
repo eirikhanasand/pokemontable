@@ -1,0 +1,118 @@
+/* Full screen */
+.pokemon_table {
+    display: grid;
+    background-color: #213A5C;
+    width: 100%;
+    overflow: auto;
+    border-radius: 1em;
+    /* Exact value that works both for Safari and Chrome */
+    height: 92.575vh;
+}
+
+/* Table header */
+.table_header {
+    position: absolute;
+    background-color: #213A5C; /* 192b45 */
+    width: 93%;
+    align-items: center;
+    justify-content: center;
+    /* background-color: red; */
+    border-radius: 1em;
+    display: grid;
+    margin-left: 1em;
+    margin-right: 1em;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+/* Table rows */
+.table_content {
+    margin: 1em;
+    /* display: grid; */
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    /* place-items: center; */
+    /* height: 80px; */
+    cursor: pointer;
+}
+
+/* Table items */
+.table_item,
+.table_header_item,
+.table_item_clickable {
+    color: white;
+    font-size: 1.2em;
+}
+
+.table_header_item {
+    font-weight: 600;
+}
+
+/* Images in the pokemon table */
+.table_item_image {
+    height: 6em;
+    width: 6em;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+}
+
+/* Adds cursor pointer to clickable elements */
+.table_item_clickable {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Displays a thin horizontal line */
+.line {
+    margin-left: 2em;
+    margin-right: 2em;
+    background-color: #0E2038;
+    height: 1px;
+}
+
+.header_margin {
+    /* Adds header margin to list to ensure that the list starts below header */
+    margin-bottom: 62px;
+}
+
+/* 
+ * Decreases items on small devices to prevent content from overlapping
+ */
+@media only screen and (max-width: 600px) {
+    .table_item {
+        font-size: 0.8em;
+    }
+
+    .table_item_image {
+        height: 4em;
+        width: 4em;
+    }
+
+    .pokemon_table {
+        height: 96.3vh;
+    }
+}
+
+/* 
+ * Decreases items on even smaller devices to prevent content from overlapping
+ */
+ @media only screen and (max-width: 600px) {
+    .table_item {
+        font-size: 0.8em;
+    }
+
+    .pokemon_table {
+        height: 96.4vh;
+    }
+}
+
+/* 
+ * Decreases height of pokemon table on small screens to ensure the UI 
+ * looks indentical on all devices 
+ */
+@media only screen and (max-height: 600px) {
+    /* Full screen */
+    .pokemon_table {
+        height: 80vh;
+    }
+}

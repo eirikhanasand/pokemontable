@@ -1,0 +1,10 @@
+.loading_div {
+    width: 100vw;
+    background-color: #0E2038;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 2em;
+    font-weight: 600;
+}

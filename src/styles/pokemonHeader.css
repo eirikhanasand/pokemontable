@@ -1,0 +1,52 @@
+/* Container for header when viewing a specific pokemon */
+.pokemon_header {
+    background-color: #192b45;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+/* Container for images in the top nav bar */
+.pokemon_nav_image_container {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    background-color: red;
+    /* Makes no visual difference, but fixes bug in Safari */
+    width: 0; 
+}
+
+/* Changes pointer type to cursor for the clickable navigation images */
+.pokemon_nav_image {
+    cursor: pointer;
+}
+
+/* Displays the pokemon header text */
+.pokemon_display {
+    color: white;
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.pokemon_nav_image {
+    cursor: pointer;
+}
+
+.wrapper {
+    background-color: #0E2038;
+    padding: 2em;
+}
+
+ 
+/* Decreases the padding on small screens */
+@media only screen and (max-width: 600px) {
+    .wrapper {
+      padding: 1em;
+      height: 96.4vh;
+    }
+}

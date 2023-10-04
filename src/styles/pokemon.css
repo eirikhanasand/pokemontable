@@ -1,0 +1,59 @@
+.pokemon_image {
+    height: 25em;
+    width: 25em;
+    background-color: red;
+}
+
+/* Table rows */
+.table_content {
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    place-items: center;
+    height: 80px;
+    cursor: pointer;
+}
+
+.pokemon_background {
+    background-color: #192b45;
+    height: 93vh;
+    border-radius: 1em;
+    background-color: yellow;
+}
+
+.general_info {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    background-color: green;
+    width: 300px;
+}
+
+.general_name {
+    font-size: 2.45em;
+    font-weight: 600;
+    color: white;
+    background-color: red;
+}
+
+.pokemon_item {
+    background-color: red;
+}
+
+.wrapper {
+    background-color: #0E2038;
+    padding: 2em;
+    /* Exact value that works both for Safari and Chrome */
+    height: 92.575vh;
+    /* display: grid;
+    place-items: center; */
+}
+
+ 
+/* Decreases the padding on small screens */
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        padding: 1em;
+        height: 96.4vh;
+    }
+}
