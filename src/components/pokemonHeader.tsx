@@ -46,8 +46,8 @@ export default function PokemonHeader() {
                 onClick={goBack} 
             />
             <p className="pokemon_display">
-                Displaying pokemon {pokemonList[pokemon].id}: 
-                {pokemonList[pokemon].name}
+                Displaying pokemon {pokemonList[pokemon].id}
+                : {pokemonList[pokemon].name}
             </p>
             <div className="pokemon_nav_image_container">
                 <img 
