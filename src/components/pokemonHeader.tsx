@@ -24,16 +24,16 @@ export default function PokemonHeader() {
         function handleKeyDown(event: KeyboardEvent) {
           switch (event.key) {
             case "ArrowDown":
-            case "ArrowLeft":   previous(); break;
+            case "ArrowLeft":   previous(); break
             case "ArrowUp":
-            case "ArrowRight":  next();     break;
+            case "ArrowRight":  next();     break
           }
         }
     
-        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keydown", handleKeyDown)
     
         return () => {
-          window.removeEventListener("keydown", handleKeyDown);
+          window.removeEventListener("keydown", handleKeyDown)
         }
       }, [pokemon])
 

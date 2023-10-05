@@ -1,19 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux"
 import "../styles/filter.css"
-import { setShow } from "../redux/pokemon";
+import { setShow } from "../redux/pokemon"
 
 type PokemonTableHeaderProps = {
     show: {
-        image: boolean;
-        weight: boolean;
-        height: boolean;
-        types: boolean;
+        image: boolean
+        weight: boolean
+        height: boolean
+        types: boolean
     }
     setShow: React.Dispatch<React.SetStateAction<{
-        image: boolean;
-        weight: boolean;
-        height: boolean;
-        types: boolean;
+        image: boolean
+        weight: boolean
+        height: boolean
+        types: boolean
     }>>
     toggleFilter: () => void
 }
