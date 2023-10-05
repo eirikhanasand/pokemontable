@@ -17,7 +17,9 @@ export default function PokemonHeader() {
     }
 
     function next() {
-        dispatch(setPokemon(pokemon + 1))
+        if (pokemon < 1016) {
+            dispatch(setPokemon(pokemon + 1))
+        }
     }
 
     useEffect(() => {
