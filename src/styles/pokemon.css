@@ -1,6 +1,7 @@
 .pokemon_image {
     height: 25em;
     width: 25em;
+    object-fit: cover;
 }
 
 /* Table rows */
@@ -8,8 +9,7 @@
     margin: 1em;
     display: grid;
     place-items: center;
-    margin-top: -0.3em;
-    height: 80px;
+    height: 70px;
     cursor: pointer;
 }
 

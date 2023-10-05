@@ -1,25 +1,25 @@
-import { useEffect } from "react"
-import fetchPokemonPage from "../utils/fetchPokemon"
 import "../styles/pokemonTable.css"
+import extractImportantData from "../utils/extractImportantData"
+import fetchAllPokemon from "../utils/fetchPokemon"
+import Loading from "./loading"
 import PokemonTableHeader from "./pokemonTableHeader"
 import Pokemon from "./pokemon"
 import { useDispatch, useSelector } from "react-redux"
+import { useEffect } from "react"
 import { setPokemon, setPokemonList } from "../redux/pokemon"
-import extractImportantData from "../utils/extractImportantData"
-import Loading from "./loading"
 
 type PokemonList = {
     pokemon: Pokemon
 }
 
 export default function PokemonTable() {
-    const { pokemon, pokemonList, count } = useSelector((state: ReduxState) => 
+    const { pokemon, pokemonList } = useSelector((state: ReduxState) => 
         state.pokemon)
     const dispatch = useDispatch()
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetchPokemonPage(count, 1)
+            const response = await fetchAllPokemon()
             if (Array.isArray(response)) {
                 const importantData = extractImportantData(response)
                 dispatch(setPokemonList(importantData))
@@ -27,7 +27,7 @@ export default function PokemonTable() {
         }
 
         fetchData()
-    }, [count])
+    }, [dispatch])
 
     if (!pokemonList) return <Loading />
     
@@ -77,8 +77,8 @@ function ListItem({pokemon}: PokemonList): JSX.Element {
                     onClick={handleClick}
                 >
                     {show.image && <img 
-                        className="table_item-image" 
-                        src={pokemon.image} 
+                        className="table_item_image" 
+                        src={pokemon.image ? pokemon.image : "noimg.png"} 
                         alt={pokemon.name} 
                     />}
                     <p className="table_item">{pokemon.name}</p>

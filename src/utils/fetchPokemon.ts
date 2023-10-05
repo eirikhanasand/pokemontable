@@ -3,15 +3,12 @@ import getRegion from "./getRegion"
 /**
  * Fetches and returns information about 50 or a user defined amount of pokemon,
  * which make up one page of the table.
- * @param count Amount of pokemon per page
- * @param page Page to fetch
  */
-export default async function fetchPokemonPage(count: number, page: number) {
+export default async function fetchAllPokemon() {
     let pokemon: FullPokemonProps[] = []
-    const initialPokemon = page * count - count + 1
 
-    // Fetches all pokemon within the correct range
-    for (let i = initialPokemon; i < initialPokemon + count; i++) {
+    // Fetches all 1017 pokemon available in Pokeapi
+    for (let i = 1; i <= 1017; i++) {
         const response = await fetchPokemon(i)
         const region = getRegion(i)
 

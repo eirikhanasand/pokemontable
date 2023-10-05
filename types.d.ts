@@ -184,14 +184,13 @@ type ReduxState = {
             height: true,
             types: true
         }
-        count: number
     }
 }
 
 type Pokemon = {
     name: string
     id: number
-    image: string
+    image: string | null
     weight: number
     height: number
     types: string[]

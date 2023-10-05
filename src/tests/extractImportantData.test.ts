@@ -1,9 +1,9 @@
 import extractImportantData from '../utils/extractImportantData'
-import fetchPokemonPage from '../utils/fetchPokemon'
+import fetchAllPokemon from '../utils/fetchPokemon'
 
 describe("fetchPokemon", () => {
     test("extracts needed parameters from response objects", async () => {
-        const result = await fetchPokemonPage(10, 1)
+        const result = await fetchAllPokemon()
       
         expect(result).toBeInstanceOf(Array);
 

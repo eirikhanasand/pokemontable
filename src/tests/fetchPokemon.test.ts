@@ -1,8 +1,8 @@
-import fetchPokemonPage from '../utils/fetchPokemon'
+import fetchAllPokemon from '../utils/fetchPokemon'
 
 describe("fetchPokemon", () => {
     test("fetches pokemon from API with needed parameters", async () => {
-        const result = await fetchPokemonPage(10, 1)
+        const result = await fetchAllPokemon()
       
         expect(result).toBeInstanceOf(Array)
 
