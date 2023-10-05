@@ -35,15 +35,6 @@
     font-weight: 600;
 }
 
-/* Images in the pokemon table */
-.table_item_image {
-    height: 6em;
-    width: 6em;
-    display: flex;
-    justify-content: center;
-    place-items: center;
-}
-
 /* Displays a thin horizontal line */
 .line {
     margin-left: 2em;
@@ -113,11 +104,6 @@
         font-size: 0.7em;
     }
 
-    .table_item_image {
-        height: 4em;
-        width: 4em;
-    }
-
     .pokemon_table {
         height: 96.3vh;
     }
@@ -143,11 +129,6 @@
         right: 6vw;
         top: 2.5vh;
     }
-
-    .table_item_image {
-        height: 2em;
-        width: 2em;
-    }
 }
 
 /* 
@@ -164,11 +145,6 @@
 
     .table_item {
         font-size: 0.8em;
-    }
-    
-    .table_item_image {
-        height: 2em;
-        width: 2em;
     }
 
     .filter_image {
@@ -188,11 +164,6 @@
 
     .table_item {
         font-size: 0.8em;
-    }
-    
-    .table_item_image {
-        height: 2em;
-        width: 2em;
     }
 
     .filter_image {
