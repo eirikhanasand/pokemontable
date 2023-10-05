@@ -33,3 +33,5 @@ best performance. You can then serve the production build by running the
 following command:
 
 ### `serve -s build`
+
+Follow the instructions specified in the terminal to view the production build.
